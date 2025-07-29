@@ -1,4 +1,3 @@
-import json
 import utils.screencontrol as screen
 import utils.corefiles as core
 import main as main

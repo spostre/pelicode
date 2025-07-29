@@ -1,14 +1,15 @@
 import utils.screencontrol as screen
-import controllers.añadir as peli
+import controllers.añadir as add
+import controllers.lista as list
 
 def main():
 
     while True:
         opcion = menu()
         if (opcion == 1):
-            peli.add_menu()
+            add.add_menu()
         elif (opcion == 2):
-            pass
+            list.list_menu()
         elif (opcion == 3):
             pass
         elif (opcion == 4):
