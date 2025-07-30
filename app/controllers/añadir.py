@@ -58,13 +58,27 @@ def add_libro():
                 screen.pausar_pantalla()
                 continue
 
-            genero = input("Ingrese el género del libro: ")
-
-            if (not genero.isalpha()):
-                print("El género debe contener solo letras.")
-                screen.pausar_pantalla()
-            else:
+            print("Ingrese el género del libro:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
+            genero = int(input('Seleccione una opcion: '))
+            if (genero == 1):
+                genero = 'Fantasía'
                 confirmed = False
+            elif (genero == 2):
+                genero = 'Ciencia'
+                confirmed = False
+            elif (genero == 3):
+                genero = 'Romance'
+                confirmed = False
+            elif (genero == 4):
+                genero = 'Misterio'
+                confirmed = False
+            elif (genero == 5):
+                genero = 'Acción'
+                confirmed = False
+            else:
+                print("Opción no válida. Intente de nuevo.")
+                screen.pausar_pantalla()
+                continue
 
         except ValueError:
             print("Entrada no válida. Por favor, intente de nuevo.")
@@ -147,13 +161,27 @@ def add_pelicula():
                 screen.pausar_pantalla()
                 continue
 
-            genero = input("Ingrese el género de la película: ")
-
-            if (not genero.isalpha()):
-                print("El género debe contener solo letras.")
-                screen.pausar_pantalla()
-            else:
+            print("Ingrese el género de la pelicula:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
+            genero = int(input('Seleccione una opcion: '))
+            if (genero == 1):
+                genero = 'Fantasía'
                 confirmed = False
+            elif (genero == 2):
+                genero = 'Ciencia'
+                confirmed = False
+            elif (genero == 3):
+                genero = 'Romance'
+                confirmed = False
+            elif (genero == 4):
+                genero = 'Misterio'
+                confirmed = False
+            elif (genero == 5):
+                genero = 'Acción'
+                confirmed = False
+            else:
+                print("Opción no válida. Intente de nuevo.")
+                screen.pausar_pantalla()
+                continue
 
         except ValueError:
             print("Entrada no válida. Por favor, intente de nuevo.")
@@ -233,13 +261,27 @@ def add_musicas():
                 screen.pausar_pantalla()
                 continue
 
-            genero = input("Ingrese el género de la música: ")
-
-            if (not genero.isalpha()):
-                print("El género debe contener solo letras.")
-                screen.pausar_pantalla()
-            else:
+            print("Ingrese el género de la musica:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
+            genero = int(input('Seleccione una opcion: '))
+            if (genero == 1):
+                genero = 'Fantasía'
                 confirmed = False
+            elif (genero == 2):
+                genero = 'Ciencia'
+                confirmed = False
+            elif (genero == 3):
+                genero = 'Romance'
+                confirmed = False
+            elif (genero == 4):
+                genero = 'Misterio'
+                confirmed = False
+            elif (genero == 5):
+                genero = 'Acción'
+                confirmed = False
+            else:
+                print("Opción no válida. Intente de nuevo.")
+                screen.pausar_pantalla()
+                continue
 
         except ValueError:
             print("Entrada no válida. Por favor, intente de nuevo.")

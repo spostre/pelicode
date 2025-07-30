@@ -1,0 +1,13 @@
+{
+    "P001": {
+        "titulo": "Jupiter",
+        "director": "yo",
+        "genero": "Romance"
+    },
+    "P002": {
+        "titulo": "Mesa",
+        "director": "yo",
+        "genero": "Romance",
+        "calificacion": 3
+    }
+}

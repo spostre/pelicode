@@ -2,7 +2,7 @@ import utils.screencontrol as screen
 import utils.corefiles as core
 import main as main
 from data.config import libros, peliculas, musica
-from tabulate import tabulate
+#from tabulate import tabulate
 
 def list_menu():
 
@@ -202,3 +202,5 @@ def list_all():
 
     screen.pausar_pantalla()
     main.main()
+
+    #LA LISTA SE IMPRIME DOS VECES

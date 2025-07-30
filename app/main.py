@@ -3,6 +3,9 @@ import controllers.añadir as add
 import controllers.lista as list
 import controllers.buscar as search
 import controllers.edit as edit       
+import controllers.delete as delete
+import controllers.categoria as cat
+import controllers.coleccion as array
 
 def main():
 
@@ -17,11 +20,11 @@ def main():
         elif (opcion == 4):
             edit.edit_menu()
         elif (opcion == 5):
-            pass
+            delete.del_menu()
         elif (opcion == 6):
-            pass
+            cat.cat_menu()
         elif (opcion == 7):
-            pass
+            array.array_menu()
         elif (opcion == 8):
             print("Saliendo del programa...")
             break
@@ -30,6 +33,7 @@ def main():
             
 
 def menu():
+    screen.limpiar_pantalla()
 
     print('Administrador de Colección')
 
@@ -44,7 +48,7 @@ def menu():
     while True:
         try:
             opcion = int(input("\nSeleccione una opción: "))
-            if 0 <= opcion <= 8:
+            if (0 <= opcion <= 8):
                 return opcion
             else:
                 print("Opción no válida. Intente de nuevo.")

@@ -1,7 +1,34 @@
 {
     "L001": {
-        "titulo": "lola",
-        "autor": "s",
-        "genero": "s"
+        "titulo": "monedas",
+        "autor": "yo",
+        "genero": "Misterio"
+    },
+    "L002": {
+        "titulo": "Paraguas",
+        "autor": "yo",
+        "genero": "Fantas\u00eda",
+        "calificacion": 5
+    },
+    "L003": {
+        "titulo": "wango",
+        "autor": "yo",
+        "genero": "Acci\u00f3n"
+    },
+    "L004": {
+        "titulo": "LOREN",
+        "autor": "yo",
+        "genero": "Fantas\u00eda"
+    },
+    "L005": {
+        "titulo": "Lola",
+        "autor": "yo",
+        "genero": "Romance",
+        "calificacion": 5
+    },
+    "L006": {
+        "titulo": "lerolero",
+        "autor": "yo",
+        "genero": "Acci\u00f3n"
     }
 }
