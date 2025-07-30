@@ -1,6 +1,8 @@
 import utils.screencontrol as screen
 import controllers.añadir as add
 import controllers.lista as list
+import controllers.buscar as search
+import controllers.edit as edit       
 
 def main():
 
@@ -11,9 +13,9 @@ def main():
         elif (opcion == 2):
             list.list_menu()
         elif (opcion == 3):
-            pass
+            search.search_menu()
         elif (opcion == 4):
-            pass
+            edit.edit_menu()
         elif (opcion == 5):
             pass
         elif (opcion == 6):
