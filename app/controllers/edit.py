@@ -28,6 +28,7 @@ def edit_menu():
         except ValueError:
             print("Entrada no válida. Por favor, ingrese un número.")
 
+#Libro
 def edit_libro():
     screen.limpiar_pantalla()
     libros_data = core.readDataFile(libros)
@@ -77,21 +78,274 @@ def edit_libro():
             print("Entrada no válida. Por favor, ingrese un número o el título del libro.")
 
 def edit_libro_titulo():
-    screen.limpiar_pantalla()
-    
+
+    global key_libro
     libros_data = core.readDataFile(libros)
 
-    for libro in libros_data.values():
-        
-        nuevo_titulo = input("Ingrese el nuevo titulo del libro: ")
-        libro['titulo'] = nuevo_titulo
-        
-        core.writeDataFile(libros, libros_data)
-        
-        print(f"¡Título del libro actualizado a '{nuevo_titulo}'!")
-        break
+    nuevo_titulo = input("Ingrese el nuevo titulo del libro: ")
 
+    libros_data[key_libro]['titulo'] = nuevo_titulo
+    
+    core.writeDataFile(libros, libros_data)
+    
+    print(f"¡Título del libro con ID '{key_libro}' actualizado a '{nuevo_titulo}'!")
     screen.pausar_pantalla()
     main.main()
 
-    #POR TERMINAR /// Se edita siempre el primer libro sin importar el libro seleccionado
+def edit_libro_autor():
+
+    global key_libro
+    libros_data = core.readDataFile(libros)
+
+    nuevo_autor = input("Ingrese el nuevo autor del libro: ")
+
+    libros_data[key_libro]['autor'] = nuevo_autor
+    core.writeDataFile(libros, libros_data)
+
+    print(f"¡Autor del libro con ID '{key_libro}' actualizado!")
+    screen.pausar_pantalla()
+    main.main()
+
+def edit_libro_genero():
+    global key_libro
+    libros_data = core.readDataFile(libros)
+
+    nuevo_genero = input("Ingrese el nuevo género del libro: ")
+
+    libros_data[key_libro]['genero'] = nuevo_genero
+    core.writeDataFile(libros, libros_data)
+
+    print(f"¡Género del libro con ID '{key_libro}' actualizado!")
+    screen.pausar_pantalla()
+    main.main()
+
+def edit_libro_calificacion():
+    global key_libro
+    libros_data = core.readDataFile(libros)
+
+    while True:
+        try:
+            nueva_calificacion = int(input("Ingrese la nueva calificación (1-5): "))
+            if (1 <= nueva_calificacion <= 5):
+                libros_data[key_libro]['calificacion'] = nueva_calificacion
+                core.writeDataFile(libros, libros_data)
+                print(f"¡Calificación del libro con ID '{key_libro}' actualizada!")
+                screen.pausar_pantalla()
+                return
+            else:
+                print("Por favor, ingrese un número entre 1 y 5.")
+        except ValueError:
+            print("Entrada no válida. Ingrese un número entero.")
+    
+
+#Pelicula
+def edit_pelicula():
+    global key_pelicula
+    screen.limpiar_pantalla()
+    peliculas_data = core.readDataFile(peliculas)
+
+    if (not peliculas_data):
+        print("No hay películas registradas para editar.")
+        screen.pausar_pantalla()
+        return
+
+    print("--- Seleccione la Película a Editar ---")
+    for id_pelicula, data_pelicula in peliculas_data.items():
+        print(f"{id_pelicula}: {data_pelicula['titulo']}")
+
+    while True:
+        key_pelicula = input("Seleccione el ID de la película a editar: ").upper()
+        if key_pelicula in peliculas_data:
+            break
+        else:
+            print("ID no válido. Intente de nuevo.")
+
+    while True:
+        screen.limpiar_pantalla()
+        print(f"Editando: {peliculas_data[key_pelicula]['titulo']}")
+        print("¿Qué aspecto de la película desea editar?")
+        print("1. Título")
+        print("2. Director")
+        print("3. Género")
+        print("4. Calificación")
+        print("5. Volver")
+
+        try:
+            sub_opcion = int(input("Seleccione una opción: "))
+            if sub_opcion == 1:
+                edit_pelicula_titulo()
+            elif sub_opcion == 2:
+                edit_pelicula_director()
+            elif sub_opcion == 3:
+                edit_pelicula_genero()
+            elif sub_opcion == 4:
+                edit_pelicula_calificacion()
+            elif sub_opcion == 5:
+                edit_menu()
+            else:
+                print("Opción no válida.")
+                screen.pausar_pantalla()
+        except ValueError:
+            print("Entrada no válida. Ingrese un número.")
+            screen.pausar_pantalla()
+    
+
+def edit_pelicula_titulo():
+    global key_pelicula
+    peliculas_data = core.readDataFile(peliculas)
+
+    nuevo_titulo = input("Ingrese el nuevo titulo de la película: ")
+
+    peliculas_data[key_pelicula]['titulo'] = nuevo_titulo
+    core.writeDataFile(peliculas, peliculas_data)
+
+    print(f"¡Título de la película con ID '{key_pelicula}' actualizado!")
+    screen.pausar_pantalla()
+
+def edit_pelicula_director():
+    global key_pelicula
+    peliculas_data = core.readDataFile(peliculas)
+
+    nuevo_director = input("Ingrese el nuevo director de la película: ")
+
+    peliculas_data[key_pelicula]['director'] = nuevo_director
+    core.writeDataFile(peliculas, peliculas_data)
+
+    print(f"¡Director de la película con ID '{key_pelicula}' actualizado!")
+    screen.pausar_pantalla()
+
+def edit_pelicula_genero():
+    global key_pelicula
+    peliculas_data = core.readDataFile(peliculas)
+
+    nuevo_genero = input("Ingrese el nuevo género de la película: ")
+
+    peliculas_data[key_pelicula]['genero'] = nuevo_genero
+    core.writeDataFile(peliculas, peliculas_data)
+
+    print(f"¡Género de la película con ID '{key_pelicula}' actualizado!")
+    screen.pausar_pantalla()
+
+def edit_pelicula_calificacion():
+    global key_pelicula
+    peliculas_data = core.readDataFile(peliculas)
+
+    while True:
+        try:
+            nueva_calificacion = int(input("Ingrese la nueva calificación (1-5): "))
+
+            if (1 <= nueva_calificacion <= 5):
+                peliculas_data[key_pelicula]['calificacion'] = nueva_calificacion
+                core.writeDataFile(peliculas, peliculas_data)
+                print(f"\n¡Calificación de la película con ID '{key_pelicula}' actualizada!")
+                screen.pausar_pantalla()
+                return
+            else:
+                print("Por favor, ingrese un número entre 1 y 5.")
+        except ValueError:
+            print("Entrada no válida. Ingrese un número entero.")
+
+#Musica
+def edit_musica():
+    global key_musica
+    screen.limpiar_pantalla()
+    musica_data = core.readDataFile(musica)
+
+    if (not musica_data):
+        print("No hay canciones registradas para editar.")
+        screen.pausar_pantalla()
+        return
+
+    print("--- Seleccione la Canción a Editar ---")
+    for id_musica, data_musica in musica_data.items():
+        print(f"{id_musica}: {data_musica['titulo']}")
+
+    while True:
+        key_musica = input("\nSeleccione el ID de la canción a editar: ").upper()
+        if key_musica in musica_data:
+            break
+        else:
+            print("ID no válido. Intente de nuevo.")
+
+    while True:
+        screen.limpiar_pantalla()
+        print(f"Editando: {musica_data[key_musica]['titulo']}")
+        print("\n¿Qué aspecto de la canción desea editar?")
+        print("1. Título")
+        print("2. Artista")
+        print("3. Género")
+        print("4. Calificación")
+        print("5. Volver")
+
+        try:
+            sub_opcion = int(input("Seleccione una opción: "))
+            if sub_opcion == 1:
+                edit_musica_titulo()
+            elif sub_opcion == 2:
+                edit_musica_artista()
+            elif sub_opcion == 3:
+                edit_musica_genero()
+            elif sub_opcion == 4:
+                edit_musica_calificacion()
+            elif sub_opcion == 5:
+                edit_menu()
+            else:
+                print("Opción no válida.")
+                screen.pausar_pantalla()
+        except ValueError:
+            print("Entrada no válida. Ingrese un número.")
+            screen.pausar_pantalla()
+
+def edit_musica_titulo():
+    global key_musica
+    musica_data = core.readDataFile(musica)
+    
+    nuevo_titulo = input("Ingrese el nuevo titulo de la canción: ")
+
+    musica_data[key_musica]['titulo'] = nuevo_titulo
+    core.writeDataFile(musica, musica_data)
+
+    print(f"¡Título de la canción con ID '{key_musica}' actualizado!")
+    screen.pausar_pantalla()
+
+def edit_musica_artista():
+    global key_musica
+    musica_data = core.readDataFile(musica)
+
+    nuevo_artista = input("Ingrese el nuevo artista de la canción: ")
+
+    musica_data[key_musica]['artista'] = nuevo_artista
+    core.writeDataFile(musica, musica_data)
+
+    print(f"¡Artista de la canción con ID '{key_musica}' actualizado!")
+    screen.pausar_pantalla()
+
+def edit_musica_genero():
+    global key_musica
+    musica_data = core.readDataFile(musica)
+
+    nuevo_genero = input("Ingrese el nuevo género de la canción: ")
+
+    musica_data[key_musica]['genero'] = nuevo_genero
+    core.writeDataFile(musica, musica_data)
+
+    print(f"¡Género de la canción con ID '{key_musica}' actualizado!")
+    screen.pausar_pantalla()
+
+def edit_musica_calificacion():
+    global key_musica
+    musica_data = core.readDataFile(musica)
+
+    while True:
+        try:
+            nueva_calificacion = int(input("Ingrese la nueva calificación (1-5): "))
+            if (1 <= nueva_calificacion <= 5):
+                musica_data[key_musica]['calificacion'] = nueva_calificacion
+                core.writeDataFile(musica, musica_data)
+                print(f"\n¡Calificación de la canción con ID '{key_musica}' actualizada!")
+                screen.pausar_pantalla()
+                return
+            else:
+                print("Por favor, ingrese un número entre 1 y 5.")
+        except ValueError:
+            print("Entrada no válida. Ingrese un número entero.")

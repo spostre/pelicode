@@ -2,7 +2,8 @@
     "P001": {
         "titulo": "Jupiter",
         "director": "yo",
-        "genero": "Romance"
+        "genero": "Romance",
+        "calificacion": 5
     },
     "P002": {
         "titulo": "Mesa",

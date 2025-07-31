@@ -51,7 +51,8 @@ def menu():
             if (0 <= opcion <= 8):
                 return opcion
             else:
-                print("Opción no válida. Intente de nuevo.")
+                print('saliendo')
+                break
         except ValueError:
             print("Entrada no válida. Por favor, ingrese un número.")
 

@@ -8,10 +8,10 @@ def cat_menu():
 
     print('Categorías')
     print('1. Fantasia ')
-    print('2. Ciencia Ficción')
-    print('3. Misterio')
-    print('4. Comedia')
-    print('5. Acción')
+    print('2. Ciencia')
+    print('3. Romance')
+    print('4. Misterio')
+    print('5. Accion')
     print('6. Regresar al Menú Principal')
 
     opcion = input('Seleccione una opción: ')
@@ -90,6 +90,30 @@ def cat_misterio():
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
+    print('Libros de Romance:')
+    for libro in libros_data.values():
+        if libro['genero'].lower() == 'romance':
+            print(f"{libro['titulo']} por {libro['autor']}")
+    
+    print('Películas de Romance:')
+    for pelicula in peliculas_data.values():
+        if pelicula['genero'].lower() == 'romance':
+            print(f"{pelicula['titulo']} dirigida por {pelicula['director']}")
+
+    print('Música de Romance:')
+    for musicas in musica_data.values():
+        if musicas['genero'].lower() == 'Romance':
+            print(f"{musicas['titulo']} por {musicas['artista']}")
+
+    screen.pausar_pantalla()
+    main.main()
+
+def cat_comedia():
+    screen.limpiar_pantalla()
+    libros_data = core.readDataFile(libros)
+    peliculas_data = core.readDataFile(peliculas)
+    musica_data = core.readDataFile(musica)
+
     print('Libros de Misterio:')
     for libro in libros_data.values():
         if libro['genero'].lower() == 'misterio':
@@ -103,30 +127,6 @@ def cat_misterio():
     print('Música de Misterio:')
     for musicas in musica_data.values():
         if musicas['genero'].lower() == 'misterio':
-            print(f"{musicas['titulo']} por {musicas['artista']}")
-
-    screen.pausar_pantalla()
-    main.main()
-
-def cat_comedia():
-    screen.limpiar_pantalla()
-    libros_data = core.readDataFile(libros)
-    peliculas_data = core.readDataFile(peliculas)
-    musica_data = core.readDataFile(musica)
-
-    print('Libros de Comedia:')
-    for libro in libros_data.values():
-        if libro['genero'].lower() == 'comedia':
-            print(f"{libro['titulo']} por {libro['autor']}")
-    
-    print('Películas de Comedia:')
-    for pelicula in peliculas_data.values():
-        if pelicula['genero'].lower() == 'comedia':
-            print(f"{pelicula['titulo']} dirigida por {pelicula['director']}")
-
-    print('Música de Comedia:')
-    for musicas in musica_data.values():
-        if musicas['genero'].lower() == 'comedia':
             print(f"{musicas['titulo']} por {musicas['artista']}")
 
     screen.pausar_pantalla()
