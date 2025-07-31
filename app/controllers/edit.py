@@ -110,9 +110,24 @@ def edit_libro_genero():
     global key_libro
     libros_data = core.readDataFile(libros)
 
-    nuevo_genero = input("Ingrese el nuevo género del libro: ")
+    print("Ingrese el género del libro:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
+    genero = int(input('Seleccione una opcion: '))
+    if (genero == 1):
+        genero = 'Fantasia'
+    elif (genero == 2):
+        genero = 'Ciencia'
+    elif (genero == 3):
+        genero = 'Romance'
+    elif (genero == 4):
+        genero = 'Misterio'
+    elif (genero == 5):
+        genero = 'Acción'
+    else:
+        print("Opción no válida. Intente de nuevo.")
+        screen.pausar_pantalla()
+        edit_libro_genero()
 
-    libros_data[key_libro]['genero'] = nuevo_genero
+    libros_data[key_libro]['genero'] = genero
     core.writeDataFile(libros, libros_data)
 
     print(f"¡Género del libro con ID '{key_libro}' actualizado!")
@@ -218,9 +233,24 @@ def edit_pelicula_genero():
     global key_pelicula
     peliculas_data = core.readDataFile(peliculas)
 
-    nuevo_genero = input("Ingrese el nuevo género de la película: ")
+    print("Ingrese el género del libro:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
+    genero = int(input('Seleccione una opcion: '))
+    if (genero == 1):
+        genero = 'Fantasia'
+    elif (genero == 2):
+        genero = 'Ciencia'
+    elif (genero == 3):
+        genero = 'Romance'
+    elif (genero == 4):
+        genero = 'Misterio'
+    elif (genero == 5):
+        genero = 'Acción'
+    else:
+        print("Opción no válida. Intente de nuevo.")
+        screen.pausar_pantalla()
+        edit_pelicula_genero()
 
-    peliculas_data[key_pelicula]['genero'] = nuevo_genero
+    peliculas_data[key_pelicula]['genero'] = genero
     core.writeDataFile(peliculas, peliculas_data)
 
     print(f"¡Género de la película con ID '{key_pelicula}' actualizado!")
@@ -324,9 +354,25 @@ def edit_musica_genero():
     global key_musica
     musica_data = core.readDataFile(musica)
 
-    nuevo_genero = input("Ingrese el nuevo género de la canción: ")
+    print("Ingrese el género de la musica:\n1. Hardcore\n2. Electronica\n3. Rock\n4. Jazz\n5. Clasica ")
+    genero = int(input('Seleccione una opcion: '))
+    if (genero == 1):
+        genero = 'Hardcore'
+    elif (genero == 2):
+        genero = 'Electronica'
+    elif (genero == 3):
+        genero = 'Rock'
+    elif (genero == 4):
+        genero = 'Jazz'
+    elif (genero == 5):
+        genero = 'Clasica'
+    else:
+        print("Opción no válida. Intente de nuevo.")
+        screen.pausar_pantalla()
+        edit_musica_genero
+   
 
-    musica_data[key_musica]['genero'] = nuevo_genero
+    musica_data[key_musica]['genero'] = genero
     core.writeDataFile(musica, musica_data)
 
     print(f"¡Género de la canción con ID '{key_musica}' actualizado!")

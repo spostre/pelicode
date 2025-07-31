@@ -2,7 +2,7 @@ import utils.screencontrol as screen
 import utils.corefiles as core
 import main as main
 from data.config import libros, peliculas, musica
-#from tabulate import tabulate
+from tabulate import tabulate
 
 def search_menu():
 
@@ -46,23 +46,29 @@ def search_titulo():
 
     for libro in libros_data.values():
         if (titulo in libro['titulo'].lower()):
-            print(f"Libro encontrado: {libro['titulo']} por {libro['autor']}")
+
+            tabla.append([libro['titulo'], libro['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     for pelicula in peliculas_data.values():
         if (titulo in pelicula['titulo'].lower()):
-            print(f"Pelicula encontrada: {pelicula['titulo']} dirigida por {pelicula['director']}")
+
+            tabla.append([pelicula['titulo'], pelicula['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     for cancion in musica_data.values():
         if (titulo in cancion['titulo'].lower()):
-            print(f"Canción encontrada: {cancion['titulo']} por {cancion['artista']}")
+
+            tabla.append([cancion['titulo'], cancion['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     if (not found):
@@ -86,22 +92,28 @@ def search_autor():
 
     for libro in libros_data.values():
         if (autor in libro['autor'].lower()):
-            print(f"Libro encontrado: {libro['titulo']} por {libro['autor']}")
+
+            tabla.append([libro['titulo'], libro['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
     for pelicula in peliculas_data.values():
         if (autor in pelicula['director'].lower()):
-            print(f"Pelicula encontrada: {pelicula['titulo']} dirigida por {pelicula['director']}")
+
+            tabla.append([pelicula['titulo'], pelicula['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     for cancion in musica_data.values():
         if (autor in cancion['artista'].lower()):
-            print(f"Canción encontrada: {cancion['titulo']} por {cancion['artista']}")
+
+            tabla.append([musica['titulo'], musica['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     if (not found):
@@ -125,23 +137,30 @@ def search_genero():
 
     for libro in libros_data.values():
         if (genero in libro['genero'].lower()):
-            print(f"Libro encontrado: {libro['titulo']} por {libro['autor']}")
+
+            tabla.append([libro['titulo'], libro['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
+
             found = True
-            #tabulate
+            
 
 
     for pelicula in peliculas_data.values():
         if (genero in pelicula['genero'].lower()):
-            print(f"Pelicula encontrada: {pelicula['titulo']} dirigida por {pelicula['director']}")
+
+            tabla.append([pelicula['titulo'], pelicula['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     for cancion in musica_data.values():
         if (genero in cancion['genero'].lower()):
-            print(f"Canción encontrada: {cancion['titulo']} por {cancion['artista']}")
+            
+            tabla.append([cancion['titulo'], cancion['autor']])
+            print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
-            #tabulate
+            
 
 
     if (not found):

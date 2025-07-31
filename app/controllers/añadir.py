@@ -61,7 +61,7 @@ def add_libro():
             print("Ingrese el género del libro:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
             genero = int(input('Seleccione una opcion: '))
             if (genero == 1):
-                genero = 'Fantasía'
+                genero = 'Fantasia'
                 confirmed = False
             elif (genero == 2):
                 genero = 'Ciencia'
@@ -164,7 +164,7 @@ def add_pelicula():
             print("Ingrese el género de la pelicula:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
             genero = int(input('Seleccione una opcion: '))
             if (genero == 1):
-                genero = 'Fantasía'
+                genero = 'Fantasia'
                 confirmed = False
             elif (genero == 2):
                 genero = 'Ciencia'
@@ -261,22 +261,22 @@ def add_musicas():
                 screen.pausar_pantalla()
                 continue
 
-            print("Ingrese el género de la musica:\n1. Fantasía\n2. Ciencia\n3. Romance\n4. Misterio\n5. Accion ")
+            print("Ingrese el género de la musica:\n1. Hardcore\n2. Electronica\n3. Rock\n4. Jazz\n5. Clasica ")
             genero = int(input('Seleccione una opcion: '))
             if (genero == 1):
-                genero = 'Fantasía'
+                genero = 'Hardcore'
                 confirmed = False
             elif (genero == 2):
-                genero = 'Ciencia'
+                genero = 'Electronica'
                 confirmed = False
             elif (genero == 3):
-                genero = 'Romance'
+                genero = 'Rock'
                 confirmed = False
             elif (genero == 4):
-                genero = 'Misterio'
+                genero = 'Jazz'
                 confirmed = False
             elif (genero == 5):
-                genero = 'Acción'
+                genero = 'Clasica'
                 confirmed = False
             else:
                 print("Opción no válida. Intente de nuevo.")
