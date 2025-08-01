@@ -13,7 +13,12 @@ def cat_menu():
     print('3. Romance')
     print('4. Misterio')
     print('5. Accion')
-    print('6. Regresar al Menú Principal')
+    print('6. Hardcore')
+    print('7. Electronica')
+    print('8. Rock')
+    print('9. Jazz')
+    print('10. Clasica')
+    print('0. Regresar al Menú Principal')
 
     opcion = input('Seleccione una opción: ')
 
@@ -28,6 +33,16 @@ def cat_menu():
     elif (opcion == '5'):
         cat_accion()
     elif (opcion == '6'):
+        cat_hardcore()
+    elif (opcion == '7'):
+        cat_electronica()
+    elif (opcion == '8'):
+        cat_rock()
+    elif (opcion == '9'):
+        cat_jazz()
+    elif (opcion == '10'):
+        cat_clasica()
+    elif (opcion == '0'):
         main.main()
     else:
         print('Opción no válida. Intente de nuevo.')
@@ -40,28 +55,25 @@ def cat_fantasia():
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
-    tabla = []
-    headers = ["Título", "Autor/Director/Artista"]
-
     print('Libros de Fantasía:')
     for libro in libros_data.values():
-        if (libro['genero'].lower() == 'fantasía'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+
+        if (libro['genero'] == 'Fantasia'):
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
+            
     
     print('Películas de Fantasía:')
     for pelicula in peliculas_data.values():
-        if (pelicula['genero'].lower() == 'fantasía'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
-            print(tabulate(tabla, headers=headers, tablefmt="grid"))
+        if (pelicula['genero'] == 'Fantasia'):
 
-    print('Música de Fantasía:')
-    for musicas in musica_data.values():
-        if (musicas['genero'].lower() == 'fantasía'):
-
-            tabla.append([musicas['titulo'], musicas['autor']])
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
 
     screen.pausar_pantalla()
@@ -73,28 +85,24 @@ def cat_ciencia():
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
-    tabla = []
-    headers = ["Titulo", "Autor/Director/Artista"]
-
     print('Libros de Ciencia:')
     for libro in libros_data.values():
-        if (libro['genero'].lower() == 'ciencia'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+
+        if (libro['genero'] == 'Ciencia'):
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
     
     print('Películas de Ciencia:')
     for pelicula in peliculas_data.values():
-        if (pelicula['genero'].lower() == 'ciencia'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
-            print(tabulate(tabla, headers=headers, tablefmt="grid"))
+        if (pelicula['genero'] == 'Ciencia'):
 
-    print('Música de Ciencia:')
-    for musicas in musica_data.values():
-        if (musicas['genero'].lower() == 'ciencia'):
-
-            tabla.append([musicas['titulo'], musicas['autor']])
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
         
     screen.pausar_pantalla()
@@ -106,28 +114,22 @@ def cat_romance():
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
-    tabla = []
-    headers = ["Titulo", "Autor/Director/Artista"]
-
     print('Libros de Romance:')
     for libro in libros_data.values():
-        if (libro['genero'].lower() == 'romance'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+        if (libro['genero'] == 'Romance'):
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
     
     print('Películas de Romance:')
     for pelicula in peliculas_data.values():
-        if (pelicula['genero'].lower() == 'romance'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+        if (pelicula['genero'] == 'Romance'):
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
-            print(tabulate(tabla, headers=headers, tablefmt="grid"))
-
-    print('Música de Romance:')
-    for musicas in musica_data.values():
-        if (musicas['genero'].lower() == 'Romance'):
-
-            tabla.append([musicas['titulo'], musicas['autor']])
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
 
     screen.pausar_pantalla()
@@ -139,28 +141,23 @@ def cat_misterio():
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
-    tabla = []
-    headers = ["Titulo", "Autor/Director/Artista"]
-
     print('Libros de Misterio:')
     for libro in libros_data.values():
-        if (libro['genero'].lower() == 'misterio'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+
+        if (libro['genero'] == 'Misterio'):
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
     
     print('Películas de Misterio:')
     for pelicula in peliculas_data.values():
-        if (pelicula['genero'].lower() == 'misterio'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+        if (pelicula['genero'] == 'Misterio'):
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
-            print(tabulate(tabla, headers=headers, tablefmt="grid"))
-
-    print('Música de Misterio:')
-    for musicas in musica_data.values():
-        if (musicas['genero'].lower() == 'misterio'):
-
-            tabla.append([musicas['titulo'], musicas['autor']])
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
 
     screen.pausar_pantalla()
@@ -172,31 +169,112 @@ def cat_accion():
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
-    tabla = []
-    headers = ["Titulo", "Autor/Director/Artista"]
+    
 
     print('Libros de Acción:')
     for libro in libros_data.values():
-        if (libro['genero'].lower() == 'acción'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
+
+        if (libro['genero'] == 'Accion'):
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
     
     print('Películas de Acción:')
     for pelicula in peliculas_data.values():
-        if (pelicula['genero'].lower() == 'acción'):
+        tabla = []
+        headers = ["Titulo", "Autor/Director/Artista"]
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
-            print(tabulate(tabla, headers=headers, tablefmt="grid"))
+        if (pelicula['genero'] == 'Accion'):
 
-    print('Música de Acción:')
-    for musicas in musica_data.values():
-        if (musicas['genero'].lower() == 'acción'):
-
-            tabla.append([musicas['titulo'], musicas['autor']])
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
 
     screen.pausar_pantalla()
     main.main()
 
-    
+def cat_hardcore():
+    screen.limpiar_pantalla()
+    musica_data = core.readDataFile(musica)
+
+    print('Música Hardcore:')
+    tabla = []
+    headers = ["Titulo", "Artista"]
+    for cancion in musica_data.values():
+        if 'genero' in cancion and cancion['genero'] == 'Hardcore':
+            tabla.append([cancion['titulo'], cancion['artista']])
+    if tabla:
+        print(tabulate(tabla, headers=headers, tablefmt="grid"))
+    else:
+        print("No se encontraron canciones de este género.")
+        
+    screen.pausar_pantalla()
+
+def cat_electronica():
+    screen.limpiar_pantalla()
+    musica_data = core.readDataFile(musica)
+
+    print('Música Electrónica:')
+    tabla = []
+    headers = ["Titulo", "Artista"]
+    for cancion in musica_data.values():
+        if 'genero' in cancion and cancion['genero'] == 'Electronica':
+            tabla.append([cancion['titulo'], cancion['artista']])
+    if tabla:
+        print(tabulate(tabla, headers=headers, tablefmt="grid"))
+    else:
+        print("No se encontraron canciones de este género.")
+        
+    screen.pausar_pantalla()
+
+def cat_rock():
+    screen.limpiar_pantalla()
+    musica_data = core.readDataFile(musica)
+
+    print('Música Rock:')
+    tabla = []
+    headers = ["Titulo", "Artista"]
+    for cancion in musica_data.values():
+        if 'genero' in cancion and cancion['genero'] == 'Rock':
+            tabla.append([cancion['titulo'], cancion['artista']])
+    if tabla:
+        print(tabulate(tabla, headers=headers, tablefmt="grid"))
+    else:
+        print("No se encontraron canciones de este género.")
+        
+    screen.pausar_pantalla()
+
+def cat_jazz():
+    screen.limpiar_pantalla()
+    musica_data = core.readDataFile(musica)
+
+    print('Música Jazz:')
+    tabla = []
+    headers = ["Titulo", "Artista"]
+    for cancion in musica_data.values():
+        if 'genero' in cancion and cancion['genero'] == 'Jazz':
+            tabla.append([cancion['titulo'], cancion['artista']])
+    if tabla:
+        print(tabulate(tabla, headers=headers, tablefmt="grid"))
+    else:
+        print("No se encontraron canciones de este género.")
+        
+    screen.pausar_pantalla()
+
+def cat_clasica():
+    screen.limpiar_pantalla()
+    musica_data = core.readDataFile(musica)
+
+    print('Música Clásica:')
+    tabla = []
+    headers = ["Titulo", "Artista"]
+    for cancion in musica_data.values():
+        if 'genero' in cancion and cancion['genero'] == 'Clasica':
+            tabla.append([cancion['titulo'], cancion['artista']])
+    if tabla:
+        print(tabulate(tabla, headers=headers, tablefmt="grid"))
+    else:
+        print("No se encontraron canciones de este género.")
+        
+    screen.pausar_pantalla()

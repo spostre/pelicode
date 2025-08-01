@@ -146,11 +146,12 @@ def edit_libro_calificacion():
                 core.writeDataFile(libros, libros_data)
                 print(f"¡Calificación del libro con ID '{key_libro}' actualizada!")
                 screen.pausar_pantalla()
-                return
+                main.main()
             else:
                 print("Por favor, ingrese un número entre 1 y 5.")
         except ValueError:
             print("Entrada no válida. Ingrese un número entero.")
+
     
 
 #Pelicula
@@ -228,6 +229,7 @@ def edit_pelicula_director():
 
     print(f"¡Director de la película con ID '{key_pelicula}' actualizado!")
     screen.pausar_pantalla()
+    main.main()
 
 def edit_pelicula_genero():
     global key_pelicula
@@ -255,6 +257,7 @@ def edit_pelicula_genero():
 
     print(f"¡Género de la película con ID '{key_pelicula}' actualizado!")
     screen.pausar_pantalla()
+    main.main()
 
 def edit_pelicula_calificacion():
     global key_pelicula
@@ -267,9 +270,9 @@ def edit_pelicula_calificacion():
             if (1 <= nueva_calificacion <= 5):
                 peliculas_data[key_pelicula]['calificacion'] = nueva_calificacion
                 core.writeDataFile(peliculas, peliculas_data)
-                print(f"\n¡Calificación de la película con ID '{key_pelicula}' actualizada!")
+                print(f"¡Calificación de la película con ID '{key_pelicula}' actualizada!")
                 screen.pausar_pantalla()
-                return
+                main.main()
             else:
                 print("Por favor, ingrese un número entre 1 y 5.")
         except ValueError:
@@ -284,14 +287,14 @@ def edit_musica():
     if (not musica_data):
         print("No hay canciones registradas para editar.")
         screen.pausar_pantalla()
-        return
+        edit_menu()
 
     print("--- Seleccione la Canción a Editar ---")
     for id_musica, data_musica in musica_data.items():
         print(f"{id_musica}: {data_musica['titulo']}")
 
     while True:
-        key_musica = input("\nSeleccione el ID de la canción a editar: ").upper()
+        key_musica = input("Seleccione el ID de la canción a editar: ").upper()
         if key_musica in musica_data:
             break
         else:
@@ -300,7 +303,7 @@ def edit_musica():
     while True:
         screen.limpiar_pantalla()
         print(f"Editando: {musica_data[key_musica]['titulo']}")
-        print("\n¿Qué aspecto de la canción desea editar?")
+        print("¿Qué aspecto de la canción desea editar?")
         print("1. Título")
         print("2. Artista")
         print("3. Género")
@@ -337,6 +340,7 @@ def edit_musica_titulo():
 
     print(f"¡Título de la canción con ID '{key_musica}' actualizado!")
     screen.pausar_pantalla()
+    main.main()
 
 def edit_musica_artista():
     global key_musica
@@ -349,6 +353,7 @@ def edit_musica_artista():
 
     print(f"¡Artista de la canción con ID '{key_musica}' actualizado!")
     screen.pausar_pantalla()
+    main.main()
 
 def edit_musica_genero():
     global key_musica
@@ -377,6 +382,7 @@ def edit_musica_genero():
 
     print(f"¡Género de la canción con ID '{key_musica}' actualizado!")
     screen.pausar_pantalla()
+    main.main()
 
 def edit_musica_calificacion():
     global key_musica
@@ -390,7 +396,7 @@ def edit_musica_calificacion():
                 core.writeDataFile(musica, musica_data)
                 print(f"\n¡Calificación de la canción con ID '{key_musica}' actualizada!")
                 screen.pausar_pantalla()
-                return
+                main.main()
             else:
                 print("Por favor, ingrese un número entre 1 y 5.")
         except ValueError:

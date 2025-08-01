@@ -30,7 +30,6 @@ def main():
             break
 
             
-            
 
 def menu():
     screen.limpiar_pantalla()

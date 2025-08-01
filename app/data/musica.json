@@ -2,6 +2,13 @@
     "M001": {
         "titulo": "Velocidad",
         "artista": "lero",
-        "genero": "Acci\u00f3n"
+        "genero": "Clasica",
+        "calificacion": 5
+    },
+    "M002": {
+        "titulo": "tua",
+        "artista": "yo",
+        "genero": "Hardcore",
+        "calificacion": 5
     }
 }

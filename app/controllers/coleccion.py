@@ -311,13 +311,13 @@ def array_musica():
             try:
                 calificacion = int(input("Ingrese la calificación de la música (1-5): "))
                 if (1 <= calificacion <= 5):
-                    musica = {
+                    musicas = {
                         "titulo": tituloM,
                         "artista": artista,
                         "genero": genero,
                         "calificacion": calificacion
                     }
-                    musica_data[id_musica] = musica
+                    musica_data[id_musica] = musicas
                     musicas_usada.append(tituloM)
                 else:
                     print("La calificación debe estar entre 1 y 5.")
@@ -329,12 +329,13 @@ def array_musica():
                 return calificar
         else:
             
-            musica = {
+            musicas = {
                 "titulo": tituloM,
                 "artista": artista,
                 "genero": genero,
             }
-            musica_data[id_musica] = musica
+
+            musica_data[id_musica] = musicas
             musicas_usada.append(tituloM)
         print('Música añadida exitosamente a la colección.')
         print('Quieres añadir otra musica? y/n')

@@ -5,10 +5,16 @@
         "genero": "Romance",
         "calificacion": 5
     },
-    "P002": {
-        "titulo": "Mesa",
+    "P003": {
+        "titulo": "juas",
         "director": "yo",
-        "genero": "Romance",
-        "calificacion": 3
+        "genero": "Ciencia",
+        "calificacion": 5
+    },
+    "P004": {
+        "titulo": "jaja",
+        "director": "yo",
+        "genero": "Acci\u00f3n",
+        "calificacion": 5
     }
 }

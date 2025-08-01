@@ -7,18 +7,18 @@
     "L002": {
         "titulo": "Paraguas",
         "autor": "yo",
-        "genero": "Fantas\u00eda",
+        "genero": "Fantasia",
         "calificacion": 5
     },
     "L003": {
         "titulo": "wango",
         "autor": "yo",
-        "genero": "Acci\u00f3n"
+        "genero": "Accion"
     },
     "L004": {
         "titulo": "LOREN",
         "autor": "yo",
-        "genero": "Fantas\u00eda"
+        "genero": "Fantasia"
     },
     "L005": {
         "titulo": "\u00f1a\u00f1a\u00f1a\u00f1",
@@ -28,6 +28,12 @@
     },
     "L006": {
         "titulo": "lerolero",
+        "autor": "yo",
+        "genero": "Accion",
+        "calificacion": 1
+    },
+    "L008": {
+        "titulo": "jajakahbdah",
         "autor": "yo",
         "genero": "Acci\u00f3n"
     }

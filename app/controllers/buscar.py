@@ -41,11 +41,12 @@ def search_titulo():
 
     found = False
 
-    tabla = []
-    headers = ["Título", "Autor/Director/Artista"]
-
     for libro in libros_data.values():
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
+
         if (titulo in libro['titulo'].lower()):
+            print('LIBRO:')
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
@@ -54,18 +55,26 @@ def search_titulo():
 
 
     for pelicula in peliculas_data.values():
-        if (titulo in pelicula['titulo'].lower()):
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
+        if (titulo in pelicula['titulo'].lower()):
+            print('PELICULA:')
+
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
             
 
 
     for cancion in musica_data.values():
-        if (titulo in cancion['titulo'].lower()):
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
 
-            tabla.append([cancion['titulo'], cancion['autor']])
+        if (titulo in cancion['titulo'].lower()):
+            print('CANCION:')
+
+            tabla.append([cancion['titulo'], cancion['artista']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
             
@@ -75,7 +84,7 @@ def search_titulo():
         print("No se encontraron resultados.")
 
     screen.pausar_pantalla()
-    main.main()
+    search_menu()
 
 def search_autor():
     screen.limpiar_pantalla()
@@ -87,11 +96,12 @@ def search_autor():
 
     found = False
 
-    tabla = []
-    headers = ["Título", "Autor/Director/Artista"]
-
     for libro in libros_data.values():
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
+
         if (autor in libro['autor'].lower()):
+            print('LIBRO:')
 
             tabla.append([libro['titulo'], libro['autor']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
@@ -99,18 +109,26 @@ def search_autor():
             
 
     for pelicula in peliculas_data.values():
-        if (autor in pelicula['director'].lower()):
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
+        if (autor in pelicula['director'].lower()):
+            print('PELICULA:')
+
+            tabla.append([pelicula['titulo'], pelicula['director']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
             
 
 
     for cancion in musica_data.values():
-        if (autor in cancion['artista'].lower()):
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
 
-            tabla.append([musica['titulo'], musica['autor']])
+        if (autor in cancion['artista'].lower()):
+            print('CANCION:')
+
+            tabla.append([musica['titulo'], musica['artista']])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
             found = True
             
@@ -120,51 +138,101 @@ def search_autor():
         print("No se encontraron resultados.")
 
     screen.pausar_pantalla()
-    main.main()
+    search_menu()
 
 def search_genero():
     screen.limpiar_pantalla()
-    genero = input("Ingrese el género a buscar: ").lower()
+    confirm = True
+    
+    while confirm == True:
+        print("1. Fantasia")
+        print("2. Ciencia")
+        print("3. Romance")
+        print("4. Misterio")
+        print("5. Accion")
+        print('6. Hardcore')
+        print('7. Electronica')
+        print('8. Rock')
+        print('9. Jazz')
+        print('10. Clasica')
+        print('0. Regresar al Menú Principal')
+        try:
+            opcion = int(input("Ingrese el género a buscar: "))
+            if opcion == 1:
+                genero = "fantasia"
+                confirm = False
+            elif opcion == 2:
+                genero = "ciencia"
+                confirm = False
+            elif opcion == 3:
+                genero = "romance"    
+                confirm = False
+            elif opcion == 4:
+                genero = "misterio"
+                confirm = False
+            elif opcion == 5:
+                genero = "accion"
+                confirm = False
+            elif opcion == 6:
+                genero = "hardcore"
+                confirm = False
+            elif opcion == 7:
+                genero = "electronica"
+                confirm = False
+            elif opcion == 8:
+                genero = "rock"
+                confirm = False
+            elif opcion == 9:
+                genero = "jazz"
+                confirm = False
+            elif opcion == 10:
+                genero = "clasica"
+                confirm = False
+            elif opcion == 0:
+                main.main()
+        except ValueError:
+            print("Entrada no válida. Ingrese un número.")
+            continue
     
     libros_data = core.readDataFile(libros)
     peliculas_data = core.readDataFile(peliculas)
     musica_data = core.readDataFile(musica)
 
-    found = False
-
-    tabla = []
-    headers = ["Título", "Autor/Director/Artista"]
-
     for libro in libros_data.values():
-        if (genero in libro['genero'].lower()):
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
+        
+        if genero in libro.get('genero', '').lower():
+            print('LIBRO:')
 
-            tabla.append([libro['titulo'], libro['autor']])
+            tabla.append([libro['titulo'], libro['autor'], "Libro"])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
-
-            found = True
-            
-
 
     for pelicula in peliculas_data.values():
-        if (genero in pelicula['genero'].lower()):
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
 
-            tabla.append([pelicula['titulo'], pelicula['autor']])
+        if genero in pelicula.get('genero', '').lower():
+            print('PELICULA:')
+
+            tabla.append([pelicula['titulo'], pelicula['director'], "Película"])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
-            found = True
-            
-
 
     for cancion in musica_data.values():
-        if (genero in cancion['genero'].lower()):
-            
-            tabla.append([cancion['titulo'], cancion['autor']])
+        tabla = []
+        headers = ["Título", "Autor/Director/Artista"]
+        
+        if genero in cancion.get('genero', '').lower():
+            print('CANCION:')
+
+            tabla.append([cancion['titulo'], cancion['artista'], "Música"])
             print(tabulate(tabla, headers=headers, tablefmt="grid"))
-            found = True
-            
 
-
-    if (not found):
-        print("No se encontraron resultados.")
-
+    if tabla:
+        print(f"Resultados para el género: {genero.capitalize()} ---")
+        print(tabulate(tabla, headers=headers, tablefmt="grid"))
+    else:
+        print(f"No se encontraron resultados para el género '{genero}'.")
+        
     screen.pausar_pantalla()
-    main.main()
+    search_menu()
